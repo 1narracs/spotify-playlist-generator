@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .ui.container
+    .ui.basic.center.aligned.segment
+      h1.ui.header Artists Related to #{querydata.queriedartist}
+      //- button.playlistButton(type='submit') Make My Playlist
+      form(action="/search/create-playlist", method="post") 
+              input.playlistButton(type='submit' value='Make My Playlist')
+      each relatedartist in querydata.relatedartists
+        br
+        p.p1= '+-+ ' + relatedartist.artistname
+          each song in relatedartist.songs
+            p.p2= '+-+ ' + song.songname

@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .container
+    .header.clearfix
+      nav
+        ul.nav.nav-pills.float-left
+          li.nav-item(style='padding: 5px;')
+            br
+            form(action="/request-auth", method="post") 
+              input.btn.btn-primary(type='submit' value='Log In')
+            br
+            //- a.nav-link.active(onclick="requestAuth()" style='background-color: #1DB954; border-color: rgb(30, 215, 96);')
+            //-   | Log In
+            //-   span.sr-only
+          li.nav-item
+          li.nav-item
+      h3.text-muted(style='color: rgb(30, 215, 96);')
+        h1(style='color: rgb(30, 215, 96); font-weight: 600;')
+          | Spotify Playlist Generator
+          br
+        a(href='#')
+        br
+    .jumbotron
+      .row(style='')
+        .col-12.col-md-12.col-lg-8
+          form.form-inline.my-2.my-lg-0(action='/search-artist' method='post')
+            input.form-control.mr-sm-2(name="queryInput" type='search' placeholder='Search for an artist and get an auto generated playlist of similar artists!' aria-label='Search')
+            button.btn.btn-outline-success.my-2.my-sm-0(name="querySubmit" type='submit') Search
+
+      footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top
+        .col-md-4.d-flex.align-items-center
+          a.mb-3.me-2.mb-md-0.text-muted.text-decoration-none.lh-1(href='/')
+            svg.bi(width='30' height='24')
+              use(xlink:href='#bootstrap')
+          span.text-muted &copy; Samuel Carran, QUT
+  
